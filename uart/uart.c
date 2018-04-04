@@ -51,8 +51,9 @@ void uart_init(){
 }
 
 void uart_send(char letter){
+	UART->TXDRDY = 0;
 	UART->TXD = (uint32_t)letter;
-	while(UART->TXDRDY & (1)){continue;}
+	while(UART->TXDRDY & (0)){continue;}
 	UART->STARTTRX = 0;
 }
 
@@ -62,7 +63,5 @@ char uart_read(){
 	if(temp){
 		return (char)temp;
 	}
-	else{
-		return '\0';
-	}
+	return '\0';
 }
