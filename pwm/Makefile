@@ -1,6 +1,6 @@
 FAMILY := nrf51
-SOURCES := main.c twi.c accel.c
-SOURCES += ubit_led_matrix.c
+SOURCES := main.c uart.c twi.c utility.c accel.c
+SOURCES += ubit_led_matrix.c pwm.c
 
 BUILD_DIR := .build_system
 LINKER_SCRIPT := $(BUILD_DIR)/linker_script.ld

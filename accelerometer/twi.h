@@ -1,7 +1,7 @@
 #ifndef TWI_H
 #define TWI_H
-
-#include<stdint.h>
+#include "ubit_led_matrix.h"
+#include <stdint.h>
 #define TWI0 ((NRF_TWI_REG*)0x40003000)
 
 typedef struct{
@@ -52,4 +52,10 @@ void twi_multi_read(
 	uint8_t * data_buffer
 	);
 
+void twi_multi_write(
+	uint8_t slave_address,
+	uint8_t start_register,
+	int registers_to_write,
+	uint8_t * data_buffer
+);
 #endif //TWI_H
